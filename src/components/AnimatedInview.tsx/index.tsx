@@ -4,7 +4,9 @@ import { useInView, motion } from "framer-motion";
 import { ReactNode, useRef } from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.div``;
+const Wrapper = styled(motion.div)`
+  will-change: opacity, transform;
+`;
 
 interface AnimatedInViewProps {
   children: ReactNode;
@@ -23,16 +25,23 @@ const AnimatedInview: React.FC<AnimatedInViewProps> = ({
     visible: { opacity: 1, x: 0 },
   };
 
+  const spring = {
+    type: "spring",
+    stiffness: 60,
+    damping: 20,
+    duration,
+  };
+
   return (
-    <motion.div
+    <Wrapper
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={variants}
-      transition={{ duration }}
+      transition={spring}
       ref={ref}
     >
       {children}
-    </motion.div>
+    </Wrapper>
   );
 };
 
