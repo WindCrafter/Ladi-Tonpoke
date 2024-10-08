@@ -191,7 +191,7 @@ const Header = () => {
         </Link>
 
         <Box className="header-menu center" onClick={showDrawer}>
-          <Image src="/images/icons/menu.svg" width={32} height={32} alt="" />
+          {/* <Image src="/images/icons/menu.svg" width={32} height={32} alt="" /> */}
         </Box>
       </Flex>
     </Wrapper>

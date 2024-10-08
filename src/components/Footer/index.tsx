@@ -4,7 +4,6 @@ import { Col, Row } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
-import Map from "../Map";
 import { Box, Flex } from "../Box";
 
 const Wrapper = styled.div`
@@ -162,12 +161,6 @@ const Footer = () => {
                   href="/"
                   style={{ alignItems: "center" }}
                 >
-                  <Image
-                    src="/images/icons/location.png"
-                    width={30}
-                    height={30}
-                    alt=""
-                  />{" "}
                   <Box ml={3}>1 Wallich, Singapore 078881</Box>
                 </Link>
 
@@ -176,12 +169,6 @@ const Footer = () => {
                   href="mailto:support@grabway.site"
                   style={{ alignItems: "center" }}
                 >
-                  <Image
-                    src="/images/icons/message.png"
-                    width={30}
-                    height={30}
-                    alt=""
-                  />{" "}
                   <Box ml={3}>support@grabway.site</Box>
                 </Link>
 
@@ -193,13 +180,7 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Image
-                        src={item.icon}
-                        width={42}
-                        height={42}
-                        alt={item.name}
-                        quality={100}
-                      />
+                      {item.name}
                     </Link>
                   ))}
                 </Flex>
@@ -207,9 +188,7 @@ const Footer = () => {
             </div>
           </Col>
 
-          <Col xs={24} sm={11}>
-            <Map />
-          </Col>
+          <Col xs={24} sm={11}></Col>
         </Row>
 
         <div className="bottom-link center">

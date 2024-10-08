@@ -1,8 +1,6 @@
 "use client";
 
 import { createGlobalStyle } from 'styled-components';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 const GlobalStyles = createGlobalStyle`
 

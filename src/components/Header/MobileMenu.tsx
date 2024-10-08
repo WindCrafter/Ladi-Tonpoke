@@ -85,7 +85,7 @@ const MobileMenu = ({ onClose }: any) => {
     <Wrapper>
       <Flex flexDirection="column" justifyContent="center" alignItems="cneter">
         <Box className="close-image" onClick={onClose}>
-          <Image src="/images/icons/timeX.svg" width={20} height={20} alt="" />
+          X
         </Box>
         <Flex justifyContent="center" mt={3}>
           <Image
