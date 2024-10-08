@@ -9,7 +9,7 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   background: url("/images/home/bg.webp") no-repeat center center;
   background-size: cover;
-  height: 100vh; /* Increase height to enable scrolling */
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 
 const LogoBox = styled(motion.div)`
   position: absolute;
-  top: 20%; /* Adjusted to ensure visibility */
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -46,7 +46,7 @@ const GrassBox = styled(motion.div)`
   align-items: center;
   position: absolute;
   width: 100%;
-  bottom: -100px; /* Adjusted to ensure visibility */
+  bottom: -100px;
   will-change: transform;
 
   &:before {
@@ -71,7 +71,7 @@ const MountainBox = styled(motion.div)`
   align-items: center;
   position: absolute;
   width: 100%;
-  bottom: 0%; /* Adjusted to ensure visibility */
+  bottom: 0%;
   will-change: transform;
 
   img {
