@@ -1,202 +1,126 @@
-import { menuHeader } from "@/config/menuHeader";
-import { socialLinks } from "@/config/socialLinks";
-import { Col, Row } from "antd";
-import Image from "next/image";
-import Link from "next/link";
+// Footer.js
+import { socialLinks } from "@/config";
 import styled from "styled-components";
-import { Box, Flex } from "../Box";
 
-const Wrapper = styled.div`
-  background: var(--Green-Green-600, #20523e);
-  color: var(--White, #fff);
-  padding: 80px 0 32px;
-
-  @media (max-width: 768px) {
-    padding: 2.5rem 0 32px;
-  }
-
-  .page-title {
-    margin-bottom: 4rem;
-  }
-
-  .item-footer {
-    display: flex;
-    gap: 16px;
-
-    @media (max-width: 768px) {
-      flex: unset;
-
-      margin-bottom: 3rem;
-    }
-
-    & > a {
-      transition: transform 150ms ease-in-out;
-    }
-
-    & > a:hover {
-      transform: scale(1.1);
-    }
-
-    @media (max-width: 768px) {
-      img {
-        width: 60px;
-        height: 60px;
-      }
-    }
-  }
-
-  .social-list {
-    margin-bottom: 172px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
-    width: 100%;
-
-    flex-wrap: wrap;
-  }
-
-  .title {
-    font-size: 30px;
-    font-weight: 600;
-    line-height: 28px;
-    margin: 0.5rem 0 2rem;
-
-    @media (max-width: 768px) {
-      text-align: center;
-    }
-  }
-
-  .ref-links {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 16px;
-
-    & > * {
-      color: var(--White, #fff);
-      font-family: var(--font-readex-pro);
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 24px;
-
-      @media (max-width: 768px) {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-
-    @media (max-width: 768px) {
-      margin-top: 1.5rem;
-      justify-content: center;
-    }
-  }
-
-  .footer-text {
-    font-family: var(--font-readex-pro);
-  }
-
-  .bottom-link {
-    margin-top: 4rem;
-    @media (max-width: 768px) {
-      flex-direction: column;
-    }
-  }
-
-  .column-footer {
-    @media (max-width: 768px) {
-      margin-top: 3rem;
-      width: 100%;
-      justify-content: center;
-
-      &.first-child {
-        margin-top: 0;
-      }
+const FooterContainer = styled.footer`
+  background-color: #111; // Dark background
+  padding: 40px 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-weight: 400;
+  .logo-container {
+    img {
+      max-width: 300px;
     }
   }
 `;
 
-const Footer = () => {
+const MenuItems = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  p {
+    font-size: 28px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+  }
+
+  .box-items {
+    display: flex;
+    gap: 35px;
+    max-width: 300px;
+    flex-wrap: wrap;
+    font-weight: 400;
+
+    p {
+      cursor: pointer;
+    }
+  }
+`;
+
+const Divider = styled.div`
+  width: 100%;
+  margin: 20px 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:after,
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 1;
+  }
+
+  &:before {
+    left: 0;
+  }
+
+  &:after {
+    right: 0;
+  }
+
+  img {
+    z-index: 2;
+    position: relative;
+  }
+`;
+
+const Copyright = styled.div`
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: left;
+  width: 100%;
+`;
+
+export default function Footer() {
   return (
-    <Wrapper id={menuHeader[4].id}>
-      <div className="container">
-        <Row>
-          <Col xs={24} sm={5}>
-            <div className="column-footer first-child">
-              <p className="title">Link</p>
+    <FooterContainer>
+      <div className="flex justify-between w-100 align-center">
+        <div className="logo-container col-2">
+          <img src="/images/logo.png" alt="Tonpoke Explore Logo" />
+        </div>
 
-              <div className="ref-links">
-                <Link
-                  className="hover"
-                  href="https://whitepaper.grabway.site/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  White Paper
-                </Link>
-                <Link className="hover" href="/">
-                  Terms & Conditions
-                </Link>
+        <MenuItems className="col-2">
+          <div className="box-items">
+            <p>Token</p>
+            <p>Gameplay</p>
+            <p>Feature</p>
+            <p>Rank</p>
+          </div>
+        </MenuItems>
+      </div>
 
-                <Link className="hover" href="/">
-                  Cookies
-                </Link>
+      <Divider>
+        <img src="/images/icons/ball.png" alt="Pokeball Icon" />
+      </Divider>
+      <div className="flex justify-between w-100">
+        <Copyright>Copyright 2024</Copyright>
 
-                <Link className="hover" href="/">
-                  Privacy Policy
-                </Link>
-              </div>
-            </div>
-          </Col>
-
-          <Col xs={24} sm={8}>
-            <div className="column-footer">
-              <p className="title">Contact us</p>
-
-              <div className="ref-links ">
-                <Link
-                  className="hover flex"
-                  href="/"
-                  style={{ alignItems: "center" }}
-                >
-                  <Box ml={3}>1 Wallich, Singapore 078881</Box>
-                </Link>
-
-                <Link
-                  className="hover flex"
-                  href="mailto:support@grabway.site"
-                  style={{ alignItems: "center" }}
-                >
-                  <Box ml={3}>support@grabway.site</Box>
-                </Link>
-
-                <Flex className="item-footer" mt={3}>
-                  {socialLinks.map((item, index) => (
-                    <Link
-                      href={item.link}
-                      key={index}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </Flex>
-              </div>
-            </div>
-          </Col>
-
-          <Col xs={24} sm={11}></Col>
-        </Row>
-
-        <div className="bottom-link center">
-          <p className="footer-text center">© 2024 All rights reserved</p>
+        <div className="flex gap-6">
+          {socialLinks.map((item) => (
+            <a
+              className="hover"
+              href={item.link}
+              key={item.name}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img width={50} src={item.icon} alt={item.name} />
+            </a>
+          ))}
         </div>
       </div>
-    </Wrapper>
+    </FooterContainer>
   );
-};
-
-export default Footer;
+}

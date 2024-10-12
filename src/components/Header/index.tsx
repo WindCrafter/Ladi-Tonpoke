@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { Box, Flex } from "../Box";
 import Link from "next/link";
 import { Drawer } from "antd";
 import MobileMenu from "./MobileMenu";
-import { menuHeader } from "@/config/menuHeader";
+import { menuHeader } from "@/config";
+import useAudio from "@/hooks/useAudio";
+import Image from "next/image";
 
 const Wrapper = styled.div<{ isShow: boolean }>`
   padding: 0 20px;
@@ -39,6 +40,8 @@ const Wrapper = styled.div<{ isShow: boolean }>`
     }
   }
 
+  backdrop-filter: blur(10px);
+
   ${(props) =>
     css`
       transform: ${props.isShow ? "translateY(0)" : "translateY(-100%)"};
@@ -50,6 +53,7 @@ const MenuWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 400;
 
   @media (max-width: 768px) {
     display: none;
@@ -60,8 +64,10 @@ const MenuWrapper = styled.div`
     cursor: pointer;
     font-size: 24px;
     opacity: 0.8;
+    transition: color 0.2s ease-in-out;
 
-    &.active {
+    &.active,
+    &:hover {
       color: rgba(247, 135, 94, 1);
     }
   }
@@ -70,10 +76,11 @@ const MenuWrapper = styled.div`
 export const JoinButton = styled.div`
   max-width: 175px;
   width: 100%;
-  height: 40px;
+  height: 60px;
   padding: 8px 32px 8px 32px;
   gap: 8px;
   border-radius: 20px;
+  font-weight: 400;
 
   @media (max-width: 768px) {
     width: fit-content;
@@ -84,14 +91,15 @@ export const JoinButton = styled.div`
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
+  background: url("/images/icons/button.png") no-repeat center;
+  background-size: contain;
+  background-position: center;
 
-  background: rgba(247, 135, 94, 1);
-
-  transition: scale 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
   cursor: pointer;
 
   &:hover {
-    scale: 1.05;
+    transform: scale(1.05); /* Changed scale to transform */
     opacity: 0.9;
   }
 `;
@@ -100,8 +108,8 @@ const Header = () => {
   const [activeItem, setActiveItem] = useState<string>("Home");
   const [isHeaderVisible, setHeaderVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
-
   const [open, setOpen] = useState(false);
+  const { isPlaying, togglePlay } = useAudio("/sounds/sound-app.mp3");
 
   const showDrawer = () => {
     setOpen(true);
@@ -114,35 +122,6 @@ const Header = () => {
   const handleClick = (item: string) => {
     setActiveItem(item);
   };
-
-  // useEffect(() => {
-  //   let scrollTimeout: NodeJS.Timeout | null = null;
-
-  //   const handleScroll = () => {
-  //     if (scrollTimeout) {
-  //       clearTimeout(scrollTimeout);
-  //     }
-
-  //     scrollTimeout = setTimeout(() => {
-  //       const currentScrollPos = window.pageYOffset;
-
-  //       setHeaderVisible(
-  //         prevScrollPos > currentScrollPos || currentScrollPos < 10
-  //       );
-
-  //       setPrevScrollPos(currentScrollPos);
-  //     }, 50);
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   return () => {
-  //     if (scrollTimeout) {
-  //       clearTimeout(scrollTimeout);
-  //     }
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [prevScrollPos]);
 
   return (
     <Wrapper isShow={isHeaderVisible}>
@@ -158,11 +137,7 @@ const Header = () => {
         <MobileMenu onClose={onClose} />
       </Drawer>
 
-      <Flex
-        className="w-100"
-        justifyContent="space-between"
-        alignItems="center"
-      >
+      <div className="w-100 flex justify-between align-center">
         <Link href="/">
           <img src="/images/logo.png" width={135} alt="" />
         </Link>
@@ -170,30 +145,45 @@ const Header = () => {
         <MenuWrapper>
           {menuHeader.map((item) => (
             <Link key={item.id} href={`#${item.id}`}>
-              <Flex
-                className={`menu-item ${
-                  activeItem === item.name ? "active" : ""
-                }`}
+              <div
+                className={`menu-item flex`}
                 onClick={() => handleClick(item.name)}
               >
                 {item.name}
-              </Flex>
+              </div>
             </Link>
           ))}
         </MenuWrapper>
 
-        <Link
-          href="https://whitepaper.grabway.site/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <JoinButton>Play Now</JoinButton>
-        </Link>
+        <div className="flex gap-4">
+          {isPlaying ? (
+            <img
+              className="hover"
+              src="/images/icons/sound.svg"
+              alt=""
+              onClick={togglePlay}
+            />
+          ) : (
+            <img
+              className="hover"
+              src="/images/icons/un-sound.svg"
+              alt=""
+              onClick={togglePlay}
+            />
+          )}
 
-        <Box className="header-menu center" onClick={showDrawer}>
-          {/* <Image src="/images/icons/menu.svg" width={32} height={32} alt="" /> */}
-        </Box>
-      </Flex>
+          <Link href="#" target="_blank" rel="noopener noreferrer">
+            <JoinButton className="center">
+              <img width={20} src="/images/social/white-telegram.png" alt="" />
+              Play Now
+            </JoinButton>
+          </Link>
+        </div>
+
+        <div className="header-menu center" onClick={showDrawer}>
+          <Image src="/images/icons/menu.svg" width={32} height={32} alt="" />
+        </div>
+      </div>
     </Wrapper>
   );
 };

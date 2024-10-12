@@ -1,5 +1,6 @@
 "use client";
 
+import { once } from "events";
 import { useInView, motion } from "framer-motion";
 import { ReactNode, useRef } from "react";
 import styled from "styled-components";
@@ -18,7 +19,7 @@ const AnimatedInview: React.FC<AnimatedInViewProps> = ({
   duration = 0.7,
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, { once: true }); // `once` makes sure animation triggers only once
 
   const variants = {
     hidden: { opacity: 0, x: -200 },
@@ -27,7 +28,7 @@ const AnimatedInview: React.FC<AnimatedInViewProps> = ({
 
   const spring = {
     type: "spring",
-    stiffness: 60,
+    stiffness: 50,
     damping: 20,
     duration,
   };

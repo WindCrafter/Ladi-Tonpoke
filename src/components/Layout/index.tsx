@@ -7,6 +7,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   /* font-family: var(--font-readex-pro); */
+  background: var(--black-bg);
 `;
 interface LayoutPageProps {
   children: React.ReactNode;

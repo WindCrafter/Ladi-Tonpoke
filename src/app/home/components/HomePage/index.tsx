@@ -1,9 +1,5 @@
-import {
-  motion,
-  useViewportScroll,
-  useTransform,
-  useSpring,
-} from "framer-motion";
+import { socialLinks } from "@/config";
+import { motion, useTransform, useSpring, useScroll } from "framer-motion";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -37,6 +33,7 @@ const LogoBox = styled(motion.div)`
     align-items: center;
     margin-top: 20px;
     gap: 20px;
+    z-index: 10;
   }
 `;
 
@@ -48,6 +45,8 @@ const GrassBox = styled(motion.div)`
   width: 100%;
   bottom: -100px;
   will-change: transform;
+  user-select: none;
+  pointer-events: none;
 
   &:before {
     content: "";
@@ -73,14 +72,15 @@ const MountainBox = styled(motion.div)`
   width: 100%;
   bottom: 0%;
   will-change: transform;
-
+  user-select: none;
+  pointer-events: none;
   img {
     width: 100%;
   }
 `;
 
 const HomePage = () => {
-  const { scrollY } = useViewportScroll();
+  const { scrollY } = useScroll();
 
   const logoY = useSpring(
     useTransform(scrollY, [0, 300], [0, 220], { clamp: false }),
@@ -100,9 +100,17 @@ const HomePage = () => {
       <LogoBox style={{ y: logoY, x: "-50%" }}>
         <img className="logo" src="/images/logo.png" alt="logo" />
         <div className="socials">
-          <img width={50} src="/images/social/telegram.svg" alt="telegram" />
-          <img width={50} src="/images/social/twitter.svg" alt="twitter" />
-          <img width={50} src="/images/social/discord.svg" alt="discord" />
+          {socialLinks.map((item) => (
+            <a
+              href={item.link}
+              key={item.name}
+              target="_blank"
+              rel="noreferrer"
+              className="hover"
+            >
+              <img width={50} src={item.icon} alt={item.name} />
+            </a>
+          ))}
         </div>
       </LogoBox>
 

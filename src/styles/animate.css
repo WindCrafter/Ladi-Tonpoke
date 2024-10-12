@@ -1,0 +1,49 @@
+/* Keyframes for rotation animation */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Keyframes for scaling animation */
+@keyframes scale {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+}
+
+/* Keyframes for fading animation */
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* CSS class for rotation animation */
+.rotate {
+  animation: rotate 5s infinite linear;
+  will-change: transform;
+}
+
+/* CSS class for scaling animation */
+.scale {
+  animation: scale 3s infinite ease-in-out;
+  will-change: transform;
+}
+
+/* CSS class for fading animation */
+.fade {
+  animation: fade 2s infinite ease-in-out;
+  will-change: opacity;
+}

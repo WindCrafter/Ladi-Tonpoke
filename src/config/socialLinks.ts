@@ -9,5 +9,9 @@ export const socialLinks = [
     icon: '/images/social/twitter.svg',
     link: 'https://x.com/Grab_Way'
   },
-
+  {
+    name: 'Discord',
+    icon: '/images/social/discord.svg',
+    link: 'https://discord.gg/GrabWay'
+  }
 ]

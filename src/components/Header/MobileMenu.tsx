@@ -1,11 +1,9 @@
 import styled from "styled-components";
-import { Box, Flex } from "../Box";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { Drawer } from "antd";
-import { socialLinks } from "@/config/socialLinks";
-import { menuHeader } from "@/config/menuHeader";
+import { useCallback, useState } from "react";
+import { socialLinks } from "@/config";
+import { menuHeader } from "@/config";
 import { JoinButton } from ".";
 
 const Wrapper = styled.div`
@@ -81,30 +79,44 @@ const Wrapper = styled.div`
 const MobileMenu = ({ onClose }: any) => {
   const [selectedItem, setSelectedItem] = useState("Home");
 
+  const handleChangeTab = useCallback(
+    (tab: string) => {
+      setSelectedItem(tab);
+      onClose();
+    },
+    [onClose]
+  );
+
   return (
     <Wrapper>
-      <Flex flexDirection="column" justifyContent="center" alignItems="cneter">
-        <Box className="close-image" onClick={onClose}>
-          X
-        </Box>
-        <Flex justifyContent="center" mt={3}>
+      <div className="flex justify-center column">
+        <div className="close-image" onClick={onClose}>
           <Image
-            src="/images/logo.svg"
+            src="/images/icons/timeX.svg"
+            width={24}
+            height={24}
+            alt=""
+            quality={100}
+          />
+        </div>
+        <div className="flex justify-center mt-3">
+          <Image
+            src="/images/logo.png"
             width={145}
             height={55}
             alt=""
             quality={100}
           />
-        </Flex>
+        </div>
 
-        <Box className="" mt={4}>
-          <Flex className="center-menu">
+        <div className="mt-4">
+          <div className="flex center-menu">
             {menuHeader.map((item, index) => (
               <Link
                 className={`${
                   selectedItem === item.name && "active"
                 } menu-item`}
-                onClick={() => setSelectedItem(item.name)}
+                onClick={() => handleChangeTab(item.name)}
                 href={`#${item.id}`}
                 key={index}
               >
@@ -112,7 +124,7 @@ const MobileMenu = ({ onClose }: any) => {
               </Link>
             ))}
 
-            <Box mt={3}>
+            <div className="mt-4">
               <Link
                 href="https://whitepaper.grabway.site/"
                 target="_blank"
@@ -120,17 +132,15 @@ const MobileMenu = ({ onClose }: any) => {
               >
                 <JoinButton>White Paper</JoinButton>
               </Link>
-            </Box>
+            </div>
 
-            <Box className="line-slider" />
-          </Flex>
-        </Box>
+            <div className="line-slider" />
+          </div>
+        </div>
 
-        <Box className="socials" mt={4} mb={3}>
-          Official social media
-        </Box>
+        <div className="socials mt-4 mb-3">Official social media</div>
 
-        <Flex justifyContent="space-between" className="socials-list">
+        <div className="flex justify-between socials-list">
           {socialLinks.map((item, index) => (
             <a href={item.link} key={index} className="social-item">
               <Image
@@ -142,8 +152,8 @@ const MobileMenu = ({ onClose }: any) => {
               />
             </a>
           ))}
-        </Flex>
-      </Flex>
+        </div>
+      </div>
     </Wrapper>
   );
 };
