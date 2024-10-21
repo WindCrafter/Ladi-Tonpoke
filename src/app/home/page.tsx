@@ -9,13 +9,9 @@ import Roadmap2 from "@/app/home/components/Roadmap2";
 const Wrapper = styled.div`
   width: 100%;
   color: #fff;
-
-  .page {
-    background-color: green;
-    width: 100%;
-    height: 100vh;
-    border: 1px solid red;
-  }
+  background: url("/images/home/sky.jpg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed; /* Fix the background image to the screen */
 `;
 
 const HomePage = () => {

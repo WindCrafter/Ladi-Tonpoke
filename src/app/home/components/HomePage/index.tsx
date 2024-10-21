@@ -1,17 +1,17 @@
+import SpineBox from "@/app/home/components/HomePage/components/SpineBox";
+import SpineAnimation from "@/app/home/components/HomePage/components/SpineBox";
+import SpineComponent from "@/app/home/components/HomePage/components/SpineBox";
 import { socialLinks } from "@/config";
 import { motion, useTransform, useSpring, useScroll } from "framer-motion";
+import { useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  background: url("/images/home/bg.webp") no-repeat center center;
-  background-size: cover;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
   z-index: 3;
 `;
 
@@ -24,6 +24,7 @@ const LogoBox = styled(motion.div)`
   will-change: transform;
 
   .logo {
+    filter: drop-shadow(0px 30px 30px rgba(0, 0, 0, 1));
     width: 25rem;
   }
 
@@ -97,6 +98,13 @@ const HomePage = () => {
 
   return (
     <Wrapper>
+      <SpineBox
+        spineDataUrl="/spine/main.json"
+        initialAnimation="effect_loop"
+        scale={0.5}
+        backgroundColor={0x1099bb}
+      />
+
       <LogoBox style={{ y: logoY, x: "-50%" }}>
         <img className="logo" src="/images/logo.png" alt="logo" />
         <div className="socials">
@@ -114,13 +122,13 @@ const HomePage = () => {
         </div>
       </LogoBox>
 
-      <MountainBox style={{ y: mountainY }}>
+      {/* <MountainBox style={{ y: mountainY }}>
         <img src="/images/home/mountain.webp" alt="mountain" />
-      </MountainBox>
-
+      </MountainBox> */}
+      {/* 
       <GrassBox style={{ y: grassY }}>
         <img src="/images/home/grass.svg" alt="grass" />
-      </GrassBox>
+      </GrassBox> */}
     </Wrapper>
   );
 };

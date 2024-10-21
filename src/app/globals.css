@@ -2,7 +2,7 @@
 @import "@/styles/animate.css";
 
 :root {
-  --black-bg: #101615;
+  --black-bg: transparent;
   --main-font: "Kasia-Black";
 }
 
