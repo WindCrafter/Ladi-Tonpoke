@@ -24,6 +24,7 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
 
   .title-box {
@@ -93,15 +94,13 @@ const WhatTonpokePage = () => {
 
   return (
     <Wrapper ref={container} id="about">
-      <div className="flex container">
-        <div className="flex items-center flex-col">
-          <img src="/images/TonPoke.png" className="w-[20vw] h-auto"></img>
-          <h1 className="text-purple-800">What is Tonpoke?</h1>
+      <div className="flex items-center flex-col px-[5vw] relative">
+        <img src="/images/TonPoke.png" className="w-[10vw] h-auto absolute z-10 min-w-[48px] min-h-[48px] right-[10vw] -top-24"></img>
+        <h1 className="text-purple-800 text-[48px] z-20">What is Tonpoke?</h1>
+        <img src="/images/RareBox.png" className="w-[120px] h-auto absolute z-10 left-[10vw] -top-24"></img>
 
-          <img src="/images/what-tonpoke/title-bg.png" alt="" className="-mt-[20px] " />
-        </div>
-
-        <p className="desc text-purple-500">
+        {/* <img src="/images/what-tonpoke/title-bg.png" alt="" className="-mt-[20px] " /> */}
+        <p className=" text-purple-500 text-[16px] z-20 ">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
           tempore et ex libero aut assumenda consectetur tenetur illum velit eum
           fuga aspernatur fugit, provident incidunt dolorum, laboriosam tempora?
@@ -111,17 +110,22 @@ const WhatTonpokePage = () => {
         </p>
       </div>
 
+
+
       <div className="list-item-box">
         <motion.div style={{ x: outImageLeftX }} className="item-box">
           <img width={300} src="/images/game-screen.png" alt="" />
+          <p className="text-purple-800 text-[48px]">Content 1</p>
         </motion.div>
 
         <motion.div style={{ y: midImageY }} className="item-box">
           <img width={300} src="/images/game-screen.png" alt="" />
+          <p className="text-purple-800 text-[48px]">Content 2</p>
         </motion.div>
 
         <motion.div style={{ x: outImageRightX }} className="item-box">
           <img width={300} src="/images/game-screen.png" alt="" />
+          <p className="text-purple-800 text-[48px]">Content 3</p>
         </motion.div>
       </div>
     </Wrapper>

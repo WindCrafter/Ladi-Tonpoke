@@ -159,7 +159,7 @@ function Roadmap2() {
     <Wrapper id="roadmap">
       <div className="container">
         <AnimatedInview duration={1}>
-          <Title>Roadmap</Title>
+          <p className="text-purple-800 text-[48px] text-center">Roadmap</p>
         </AnimatedInview>
 
         <RoadmapContainer>

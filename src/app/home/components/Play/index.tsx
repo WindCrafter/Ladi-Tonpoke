@@ -215,8 +215,8 @@ const TokenPage = () => {
     <Wrapper id="play">
       <div className="container relative">
         <AnimatedInview duration={1}>
-          <p className="title center gap-4">
-            <img width={60} src="/images/icons/package.png" alt="" />
+          <p className="text-purple-800 text-[48px] center gap-4">
+            <img className="w-[72px] h-auto" src="/images/icons/treasure.png" alt="" />
             Play To Earn With Us
           </p>
         </AnimatedInview>
@@ -228,7 +228,7 @@ const TokenPage = () => {
           <div className="box-right  flex justify-between col-2">
             {ProfitBox()}
 
-            <img width={350} src="/images/character-1.png" alt="" />
+            <img width={350} src="/images/poke.png" alt="" />
           </div>
         </div>
 
@@ -252,6 +252,7 @@ const TokenPage = () => {
           ))}
         </div> */}
       </div>
+      <p className="text-center text-purple-800 text-[48px]">Various Character</p>
       <MarqueeAnimation>
         <div className="marquee">{logoItems} </div>
         <div className="marquee">{logoItems} </div>
