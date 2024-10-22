@@ -1,6 +1,8 @@
 @import "@/styles/utilities.css";
 @import "@/styles/animate.css";
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 :root {
   --black-bg: transparent;
   --main-font: "Kasia-Black";

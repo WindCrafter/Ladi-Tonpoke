@@ -8,6 +8,7 @@ const Wrapper = styled.div`
     font-size: 3rem;
     text-align: center;
     font-weight: 600;
+    color: black
   }
 
   .box-right {
@@ -202,7 +203,7 @@ const TokenPage = () => {
                 src="/images/icons/tick-2.png"
                 alt=""
               />
-              <p>{item.text}</p>
+              <p className="text-purple-800">{item.text}</p>
             </div>
           </AnimatedInview>
         ))}

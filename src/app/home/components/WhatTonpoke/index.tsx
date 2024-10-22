@@ -40,11 +40,14 @@ const Wrapper = styled.div`
   }
 
   .desc {
-    color: rgba(255, 255, 255, 0.8);
     margin-top: 4rem;
     font-weight: 400;
     font-size: 1.2rem;
     line-height: 1.5;
+  }
+  .coinLogo { 
+  width: 120px,
+  height: auto
   }
 `;
 const WhatTonpokePage = () => {
@@ -91,12 +94,14 @@ const WhatTonpokePage = () => {
   return (
     <Wrapper ref={container} id="about">
       <div className="flex container">
-        <div className="title-box">
-          <h1>What is Tonpoke?</h1>
-          <img src="/images/what-tonpoke/title-bg.png" alt="" />
+        <div className="flex items-center flex-col">
+          <img src="/images/TonPoke.png" className="w-[20vw] h-auto"></img>
+          <h1 className="text-purple-800">What is Tonpoke?</h1>
+
+          <img src="/images/what-tonpoke/title-bg.png" alt="" className="-mt-[20px] " />
         </div>
 
-        <p className="desc">
+        <p className="desc text-purple-500">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
           tempore et ex libero aut assumenda consectetur tenetur illum velit eum
           fuga aspernatur fugit, provident incidunt dolorum, laboriosam tempora?
