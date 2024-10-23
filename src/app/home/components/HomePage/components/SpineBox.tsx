@@ -21,7 +21,7 @@ const SpineBox: React.FC<SpineBoxProps> = ({
   useEffect(() => {
     const app = new PIXI.Application({
       width: window.innerWidth,
-      height: window.innerHeight + 100,
+      height: window.innerHeight-10,
       backgroundAlpha: 0,
     });
 

@@ -1,7 +1,7 @@
 "use client";
 
+import { Footer } from "@/app/home/components/Footer";
 import Header from "@/components/Header";
-import Footer from "../Footer";
 
 import styled from "styled-components";
 
@@ -18,7 +18,7 @@ const LayoutPage: React.FC<LayoutPageProps> = ({ children }) => {
     <Wrapper>
       <Header />
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </Wrapper>
   );
 };

@@ -6,6 +6,7 @@ import TokenPage from "@/app/home/components/Play";
 import Roadmap from "@/app/home/components/Roadmap";
 import Roadmap2 from "@/app/home/components/Roadmap2";
 import { Background } from "./components/Background";
+import { Footer } from "./components/Footer";
 const Wrapper = styled.div`
   width: 100%;
 
@@ -24,6 +25,7 @@ const HomePage = () => {
       <TokenPage />
 
       <Roadmap2 />
+      
     </Wrapper>
   );
 };

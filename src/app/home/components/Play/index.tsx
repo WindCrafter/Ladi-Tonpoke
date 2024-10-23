@@ -2,12 +2,12 @@
 const TokenPage = () => {
 
   return (
-    <div style={{paddingTop: "40px"}} className="top-how-to-buy__container">
+    <div className="top-how-to-buy__container !pt-[15vh]">
     <div className="top-how-to-buy__book active book-top-how-to-buy">
       <div className="book-top-how-to-buy__box">
         <div data-watch-threshold="0.5" data-watch-once data-watch className="book-top-how-to-buy__item-first-page">
           <div className="book-top-how-to-buy__item-first-page-lables">
-            <div className="book-top-how-to-buy__item-first-page-lable">
+            {/* <div className="book-top-how-to-buy__item-first-page-lable">
               <img src="img/how-to-buy/label-box-active.svg" alt="Icon" />
               <img src="img/how-to-buy/desktop.svg" alt="Icon" />
             </div>
@@ -18,14 +18,14 @@ const TokenPage = () => {
             <div className="book-top-how-to-buy__item-first-page-lable">
               <img src="img/how-to-buy/label-box.svg" alt="Icon" />
               <img src="img/how-to-buy/wallet.svg" alt="Icon" />
-            </div>
+            </div> */}
           </div>
           <div className="book-top-how-to-buy__item-first-page-body">
             <h2 className="book-top-how-to-buy__item-first-page-title">
-              <span>H</span><span>o</span><span>w</span> <span>i</span><span>t</span><span>o</span> <span>i</span><span>G</span><span>e</span><span>t</span> <br />
-              <span className="orange">$</span><span className="orange">M</span><span className="orange">O</span><span className="orange">C</span><span className="orange">H</span><span className="orange">I</span>
+              <span>H</span><span>o</span><span>w</span> <span>i</span><span>t</span><span>o</span> <span>i</span><span>P</span><span>l</span><span>a</span><span>y</span> <br />
+              <span className="orange">T</span><span className="orange">O</span><span className="orange">N</span><span className="orange">P</span><span className="orange">O</span><span className="orange">K</span><span className="orange">E</span>
             </h2>
-            <p>ON DESKTOP</p>
+            {/* <p>ON DESKTOP</p> */}
           </div>
           <div className="book-top-how-to-buy__item-label">Page 1</div>
         </div>
@@ -36,7 +36,7 @@ const TokenPage = () => {
                 Introduction
               </h3>
               <div className="book-top-how-to-buy__item-text">
-                <p>
+                {/* <p>
                   Mochi is on <span className="base-icon">Base</span> The
                   Layer 2 blockchain by Coinbase.
                 </p>
@@ -47,7 +47,8 @@ const TokenPage = () => {
                 <p>
                   It’s very easy and we’ll guide you through it in a
                   few simple steps!
-                </p>
+                </p> */}
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               </div>
             </div>
             <div className="book-top-how-to-buy__item-label">Page 2</div>
@@ -63,7 +64,7 @@ const TokenPage = () => {
                 STEP <span>1</span>
               </h3>
               <div className="book-top-how-to-buy__item-text">
-                <p>
+                {/* <p>
                   Go to ‘Settings’ in your wallet and find the
                   networks section.
                 </p>
@@ -85,7 +86,8 @@ const TokenPage = () => {
                 <p>
                   Once saved, you should be able to connect to Base by
                   selecting it from the network selection menu.
-                </p>
+                </p> */}
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               </div>
             </div>
             <div className="book-top-how-to-buy__item-label">Page 3</div>
@@ -103,7 +105,7 @@ const TokenPage = () => {
                 STEP <span>2</span>
               </h3>
               <div className="book-top-how-to-buy__item-text">
-                <p>
+                {/* <p>
                   Now you’ll need to deposit some ETH onto Base! Here
                   you have a couple options:
                 </p>
@@ -127,7 +129,8 @@ const TokenPage = () => {
                   select the network you want to bridge from, choose
                   Base as the network to bridge to, and input the
                   amount of ETH you would like to bridge!
-                </p>
+                </p> */}
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               </div>
             </div>
             <div className="book-top-how-to-buy__item-label">Page 4</div>
@@ -143,7 +146,7 @@ const TokenPage = () => {
                 STEP <span>3</span>
               </h3>
               <div className="book-top-how-to-buy__item-text">
-                <p>
+                {/* <p>
                   1. In your wallet, switch the network to Base in the
                   network dropdown menu
                 </p>
@@ -156,7 +159,8 @@ const TokenPage = () => {
                   4. In the bottom swap field, select a token and
                   input the official $MOCHI token address
                   <span className="break-word">0xF6e932Ca12afa26665dC4dDE7e27be02A7c02e50</span>
-                </p>
+                </p> */}
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               </div>
             </div>
             <div className="book-top-how-to-buy__item-label">Page 5</div>
@@ -174,14 +178,15 @@ const TokenPage = () => {
               STEP <span>4</span>
             </h3>
             <div className="book-top-how-to-buy__item-text">
-              <p>Perform the swap.</p>
+              {/* <p>Perform the swap.</p>
               <p>1. Enter an amount of ETH</p>
               <p>
                 2. Set the slippage to 3-4% by clicking on the
                 settings wheel and adjusting it
               </p>
               <p>3. Press Swap</p>
-              <p>4. Confirm the transaction in your wallet</p>
+              <p>4. Confirm the transaction in your wallet</p> */}
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </div>
           </div>
           <div className="book-top-how-to-buy__item-label">Page 6</div>

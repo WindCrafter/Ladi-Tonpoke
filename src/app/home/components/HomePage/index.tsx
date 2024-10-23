@@ -96,7 +96,7 @@ const HomePage = () => {
   );
 
   return (
-    <Wrapper>
+    <Wrapper className="w-screen h-screen">
       <SpineBox
         spineDataUrl="/spine/main.json"
         initialAnimation="effect_loop"

@@ -5,7 +5,7 @@
 @tailwind utilities;
 :root {
   --black-bg: transparent;
-  --main-font: "Kasia-Black";
+  --main-font: "Kasia";
 }
 
 * {
@@ -26,11 +26,11 @@ html {
 }
 
 @font-face {
-  font-family: "Kasia-Black";
+  font-family: "Kasia";
   font-weight: 400;
   src:
-    local("Kasia-Black"),
-    url("/fonts/Kasia-Black.ttf") format("truetype");
+    local("Kasia"),
+    url("/fonts/Kasia.ttf") format("truetype");
 }
 
 body {
