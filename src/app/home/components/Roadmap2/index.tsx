@@ -166,7 +166,6 @@ function Roadmap2() {
       </div>
     </div> */}
     </div>
-    <script src="app.min.js"></script>
  
   </div>
   );

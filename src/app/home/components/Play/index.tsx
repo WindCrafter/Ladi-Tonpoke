@@ -1,3 +1,4 @@
+import Script from 'next/script'
 
 const TokenPage = () => {
 
@@ -481,7 +482,7 @@ const TokenPage = () => {
         </div>
       </div>
     </div>
-    <script src="app.min.js"></script>
+    <Script src="/app.min.js" />
 
   </div>
   );
