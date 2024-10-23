@@ -1,264 +1,484 @@
-import AnimatedInview from "@/components/AnimatedInview.tsx";
-import styled from "styled-components";
-
-const Wrapper = styled.div`
-  padding: 5rem 0;
-
-  .title {
-    font-size: 3rem;
-    text-align: center;
-    font-weight: 600;
-    color: black
-  }
-
-  .box-right {
-    font-size: 24px;
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 2.5rem;
-  }
-
-  .bottom-image {
-    position: absolute;
-    bottom: 0;
-    width: 100px;
-    right: 0;
-  }
-
-  .tele-qr {
-    width: 300px;
-    height: 300px;
-    border-radius: 10px;
-  }
-
-  .box-poke-list {
-    margin-top: 4rem;
-    gap: 4rem;
-  }
-
-  .box-wrapper {
-    margin: 6rem 0 8rem;
-  }
-
-  .box-poke {
-    position: relative;
-    background: url("/images/poke-bg.png") no-repeat;
-    background-position: center;
-    background-size: contain;
-    height: 500px;
-    width: 300px;
-
-    @keyframes bounceY {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-20px);
-      }
-    }
-
-    .poke {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      img {
-        will-change: transform;
-        animation: bounceY 3s infinite ease-in-out;
-      }
-    }
-
-    @keyframes glow {
-      0%,
-      100% {
-        filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.5))
-          drop-shadow(0 0 2px rgba(255, 255, 255, 0.5))
-          drop-shadow(0 0 3px rgba(255, 255, 255, 0.5))
-          drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
-      }
-      50% {
-        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 1))
-          drop-shadow(0 0 4px rgba(255, 255, 255, 1))
-          drop-shadow(0 0 6px rgba(255, 255, 255, 1))
-          drop-shadow(0 0 8px rgba(255, 255, 255, 1));
-      }
-    }
-
-    .star-list {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, calc(-50% + 130px));
-      will-change: transform;
-
-      img {
-        animation: glow 2s infinite ease-in-out;
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-        will-change: filter, transform;
-      }
-    }
-  }
-
-  .profit-boxs {
-  }
-`;
-
-const ItemWrapper = styled.div`
-  width: 289.628px;
-  height: 106.212px;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15.918px;
-  border: 0.936px solid #fdfdfd;
-  background: url("/images/poke-slider.png") no-repeat;
-  background-size: cover;
-  background-position: center;
-
-  box-shadow: 0px 3.745px 3.745px 0px rgba(0, 0, 0, 0.25);
-  padding: 10px;
-  margin: 0 10px;
-  overflow: hidden;
-
-  img {
-    object-fit: contain;
-  }
-
-  @media (max-width: 524px) {
-    width: 225.628px;
-  }
-`;
-
-const MarqueeAnimation = styled.div`
-  overflow: hidden;
-  display: flex;
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 1) 15%,
-    rgba(0, 0, 0, 1) 85%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  width: 100vw;
-  .marquee {
-    display: flex;
-    padding: 10px 0;
-    animation: marquee 30s infinite linear;
-    will-change: transform;
-  }
-
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
-  }
-`;
 
 const TokenPage = () => {
-  const pokeData = [
-    {
-      imgSrc: "/images/character-2.png",
-      stars: 1,
-    },
-    {
-      imgSrc: "/images/character-2.png",
-      stars: 2,
-    },
-    {
-      imgSrc: "/images/character-2.png",
-      stars: 3,
-    },
-  ];
-
-  const logoItems = [
-    Array.from({ length: 6 }).map((item, index) => (
-      <ItemWrapper key={`svg-${index}`}>
-        <img src={`/images/character/character-${index}.png`} alt="logo" />
-      </ItemWrapper>
-    )),
-  ];
-
-  const profitData = [
-    { text: "Simple and Easy!" },
-    { text: "Clear and Equitable" },
-    { text: "Safe and Decentralized" },
-    { text: "Highly Rewarding" },
-  ];
-
-  const ProfitBox = () => {
-    return (
-      <div className="profit-boxs">
-        {profitData.map((item, index) => (
-          <AnimatedInview key={index} duration={1}>
-            <div className="flex align-center gap-3">
-              <img
-                className="rotate"
-                width={30}
-                src="/images/icons/tick-2.png"
-                alt=""
-              />
-              <p className="text-purple-800">{item.text}</p>
-            </div>
-          </AnimatedInview>
-        ))}
-      </div>
-    );
-  };
 
   return (
-    <Wrapper id="play">
-      <div className="container relative">
-        <AnimatedInview duration={1}>
-          <p className="text-purple-800 text-[48px] center gap-4">
-            <img className="w-[72px] h-auto" src="/images/icons/treasure.png" alt="" />
-            Play To Earn With Us
-          </p>
-        </AnimatedInview>
-        <div className="box-wrapper mt-6 flex">
-          <div className="box-left column flex  col-1">
-            <img className="tele-qr" src="/images/qr.png" alt="" />
+    <div style={{paddingTop: "40px"}} className="top-how-to-buy__container">
+    <div className="top-how-to-buy__book active book-top-how-to-buy">
+      <div className="book-top-how-to-buy__box">
+        <div data-watch-threshold="0.5" data-watch-once data-watch className="book-top-how-to-buy__item-first-page">
+          <div className="book-top-how-to-buy__item-first-page-lables">
+            <div className="book-top-how-to-buy__item-first-page-lable">
+              <img src="img/how-to-buy/label-box-active.svg" alt="Icon" />
+              <img src="img/how-to-buy/desktop.svg" alt="Icon" />
+            </div>
+            <div className="book-top-how-to-buy__item-first-page-lable">
+              <img src="img/how-to-buy/label-box.svg" alt="Icon" />
+              <img src="img/how-to-buy/mobile.svg" alt="Icon" />
+            </div>
+            <div className="book-top-how-to-buy__item-first-page-lable">
+              <img src="img/how-to-buy/label-box.svg" alt="Icon" />
+              <img src="img/how-to-buy/wallet.svg" alt="Icon" />
+            </div>
           </div>
-
-          <div className="box-right  flex justify-between col-2">
-            {ProfitBox()}
-
-            <img width={350} src="/images/poke.png" alt="" />
+          <div className="book-top-how-to-buy__item-first-page-body">
+            <h2 className="book-top-how-to-buy__item-first-page-title">
+              <span>H</span><span>o</span><span>w</span> <span>i</span><span>t</span><span>o</span> <span>i</span><span>G</span><span>e</span><span>t</span> <br />
+              <span className="orange">$</span><span className="orange">M</span><span className="orange">O</span><span className="orange">C</span><span className="orange">H</span><span className="orange">I</span>
+            </h2>
+            <p>ON DESKTOP</p>
+          </div>
+          <div className="book-top-how-to-buy__item-label">Page 1</div>
+        </div>
+        <div className="book-top-how-to-buy__item-wrapper">
+          <div className="book-top-how-to-buy__item book-top-how-to-buy__item--front">
+            <div className="book-top-how-to-buy__item-body">
+              <h3 className="book-top-how-to-buy__item-title">
+                Introduction
+              </h3>
+              <div className="book-top-how-to-buy__item-text">
+                <p>
+                  Mochi is on <span className="base-icon">Base</span> The
+                  Layer 2 blockchain by Coinbase.
+                </p>
+                <p>
+                  You’ll need to add Base Network to your wallet and
+                  bridge ETH in order to come over!
+                </p>
+                <p>
+                  It’s very easy and we’ll guide you through it in a
+                  few simple steps!
+                </p>
+              </div>
+            </div>
+            <div className="book-top-how-to-buy__item-label">Page 2</div>
+            <button type="button" className="book-top-how-to-buy__item-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M22.6667 14.6666V13.3333H21.3333V12H18.6667V9.33329H16V6.66663H13.3333V3.99996H10.6667V2.66663H8V6.66663H10.6667V9.33329H13.3333V12H16V14.6666H18.6667V17.3333H16V20H13.3333V22.6666H10.6667V25.3333H8V29.3333H10.6667V28H13.3333V25.3333H16V24V22.6666H18.6667V21.3333V20H21.3333V18.6666H22.6667V17.3333H24V16V14.6666H22.6667Z" fill="black" />
+              </svg>
+            </button>
+          </div>
+          <div className="book-top-how-to-buy__item book-top-how-to-buy__item--back">
+            <div className="book-top-how-to-buy__item-body">
+              <h3 className="book-top-how-to-buy__item-title">
+                STEP <span>1</span>
+              </h3>
+              <div className="book-top-how-to-buy__item-text">
+                <p>
+                  Go to ‘Settings’ in your wallet and find the
+                  networks section.
+                </p>
+                <p>
+                  Add a network manually and enter the following info
+                  for Base:
+                </p>
+                <p>
+                  Network Name: Base <br />
+                  RPC Endpoint:
+                  <a target="_blank" href="https://mainnet.base.org/">https://mainnet.base.org/</a>
+                  <br />
+                  Chain ID: 8453 <br />
+                  Currency Symbol: ETH <br />
+                  Block Explorer:
+                  <a target="_blank" href="https://mainnet.base.org/">https://basescan.org</a>
+                </p>
+                <a className="blue-button" target="_blank" href="https://chainlist.org/chain/8453">CONNECT TO BASE</a>
+                <p>
+                  Once saved, you should be able to connect to Base by
+                  selecting it from the network selection menu.
+                </p>
+              </div>
+            </div>
+            <div className="book-top-how-to-buy__item-label">Page 3</div>
+            <button type="button" className="book-top-how-to-buy__item-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M22.6667 14.6666V13.3333H21.3333V12H18.6667V9.33329H16V6.66663H13.3333V3.99996H10.6667V2.66663H8V6.66663H10.6667V9.33329H13.3333V12H16V14.6666H18.6667V17.3333H16V20H13.3333V22.6666H10.6667V25.3333H8V29.3333H10.6667V28H13.3333V25.3333H16V24V22.6666H18.6667V21.3333V20H21.3333V18.6666H22.6667V17.3333H24V16V14.6666H22.6667Z" fill="black" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div className="book-top-how-to-buy__item-wrapper">
+          <div className="book-top-how-to-buy__item book-top-how-to-buy__item--front">
+            <div className="book-top-how-to-buy__item-body">
+              <h3 className="book-top-how-to-buy__item-title">
+                STEP <span>2</span>
+              </h3>
+              <div className="book-top-how-to-buy__item-text">
+                <p>
+                  Now you’ll need to deposit some ETH onto Base! Here
+                  you have a couple options:
+                </p>
+                <p>
+                  1. Withdraw ETH to your Base wallet from Coinbase,
+                  Binance, Byit or OKX Make sure to select Base as the
+                  withdrawal network!
+                </p>
+                <p>
+                  2. Bridge ETH to Base from another chain using these
+                  bridges: <br />
+                  - Official Base Bridge
+                  <a target="_blank" href="https://bridge.base.org/deposit">https://bridge.base.org/deposit</a>, <br />
+                  - Orbiter
+                  <a target="_blank" href="https://www.orbiter.finance/">https://www.orbiter.finance/</a>, <br />
+                  - Stargate
+                  <a target="_blank" href="https://stargate.finance/">https://stargate.finance/</a>,
+                </p>
+                <p>
+                  To use these bridges simply connect your wallet,
+                  select the network you want to bridge from, choose
+                  Base as the network to bridge to, and input the
+                  amount of ETH you would like to bridge!
+                </p>
+              </div>
+            </div>
+            <div className="book-top-how-to-buy__item-label">Page 4</div>
+            <button type="button" className="book-top-how-to-buy__item-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M22.6667 14.6666V13.3333H21.3333V12H18.6667V9.33329H16V6.66663H13.3333V3.99996H10.6667V2.66663H8V6.66663H10.6667V9.33329H13.3333V12H16V14.6666H18.6667V17.3333H16V20H13.3333V22.6666H10.6667V25.3333H8V29.3333H10.6667V28H13.3333V25.3333H16V24V22.6666H18.6667V21.3333V20H21.3333V18.6666H22.6667V17.3333H24V16V14.6666H22.6667Z" fill="black" />
+              </svg>
+            </button>
+          </div>
+          <div className="book-top-how-to-buy__item book-top-how-to-buy__item--back">
+            <div className="book-top-how-to-buy__item-body">
+              <h3 className="book-top-how-to-buy__item-title">
+                STEP <span>3</span>
+              </h3>
+              <div className="book-top-how-to-buy__item-text">
+                <p>
+                  1. In your wallet, switch the network to Base in the
+                  network dropdown menu
+                </p>
+                <p>
+                  2. Go to
+                  <a target="_blank" href="https://www.sushi.com/swap">https://www.sushi.com/swap</a>
+                </p>
+                <p>3. Connect your wallet</p>
+                <p>
+                  4. In the bottom swap field, select a token and
+                  input the official $MOCHI token address
+                  <span className="break-word">0xF6e932Ca12afa26665dC4dDE7e27be02A7c02e50</span>
+                </p>
+              </div>
+            </div>
+            <div className="book-top-how-to-buy__item-label">Page 5</div>
+            <button type="button" className="book-top-how-to-buy__item-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M22.6667 14.6666V13.3333H21.3333V12H18.6667V9.33329H16V6.66663H13.3333V3.99996H10.6667V2.66663H8V6.66663H10.6667V9.33329H13.3333V12H16V14.6666H18.6667V17.3333H16V20H13.3333V22.6666H10.6667V25.3333H8V29.3333H10.6667V28H13.3333V25.3333H16V24V22.6666H18.6667V21.3333V20H21.3333V18.6666H22.6667V17.3333H24V16V14.6666H22.6667Z" fill="black" />
+              </svg>
+            </button>
           </div>
         </div>
 
-        {/* <div className="box-poke-list flex justify-center w-100">
-          {pokeData.map((poke, index) => (
-            <div key={index} className="box-poke">
-              <div className="poke">
-                <img width={220} src={poke.imgSrc} alt="" />
-              </div>
-              <div className="star-list flex gap-2">
-                {Array.from({ length: poke.stars }).map((_, starIndex) => (
-                  <img
-                    key={starIndex}
-                    width={50}
-                    src="/images/icons/star.png"
-                    alt=""
-                  />
-                ))}
+        <div className="book-top-how-to-buy__item-last-page">
+          <div className="book-top-how-to-buy__item-body">
+            <h3 className="book-top-how-to-buy__item-title">
+              STEP <span>4</span>
+            </h3>
+            <div className="book-top-how-to-buy__item-text">
+              <p>Perform the swap.</p>
+              <p>1. Enter an amount of ETH</p>
+              <p>
+                2. Set the slippage to 3-4% by clicking on the
+                settings wheel and adjusting it
+              </p>
+              <p>3. Press Swap</p>
+              <p>4. Confirm the transaction in your wallet</p>
+            </div>
+          </div>
+          <div className="book-top-how-to-buy__item-label">Page 6</div>
+        </div>
+      </div>
+    </div>
+    <div style={{display: "none"}} className="top-how-to-buy__book book-top-how-to-buy">
+      <div className="book-top-how-to-buy__box">
+        <div data-watch-threshold="0.5" data-watch-once data-watch className="book-top-how-to-buy__item-first-page">
+          <div className="book-top-how-to-buy__item-first-page-lables">
+            <div className="book-top-how-to-buy__item-first-page-lable">
+              <img src="img/how-to-buy/label-box.svg" alt="Icon" />
+              <img src="img/how-to-buy/desktop.svg" alt="Icon" />
+            </div>
+            <div className="book-top-how-to-buy__item-first-page-lable">
+              <img src="img/how-to-buy/label-box-active.svg" alt="Icon" />
+              <img src="img/how-to-buy/mobile.svg" alt="Icon" />
+            </div>
+            <div className="book-top-how-to-buy__item-first-page-lable">
+              <img src="img/how-to-buy/label-box.svg" alt="Icon" />
+              <img src="img/how-to-buy/wallet.svg" alt="Icon" />
+            </div>
+          </div>
+          <div className="book-top-how-to-buy__item-first-page-body">
+            <h2 className="book-top-how-to-buy__item-first-page-title">
+              <span>H</span><span>o</span><span>w</span> <span>i</span><span>t</span><span>o</span> <span>i</span><span>B</span><span>u</span><span>y</span> <br />
+              <span className="orange">$</span><span className="orange">M</span><span className="orange">O</span><span className="orange">C</span><span className="orange">H</span><span className="orange">I</span>
+            </h2>
+            <p>ON MOBILE</p>
+          </div>
+          <div className="book-top-how-to-buy__item-label">Mochi</div>
+        </div>
+        <div className="book-top-how-to-buy__item-wrapper">
+          <div className="book-top-how-to-buy__item book-top-how-to-buy__item--front">
+            <div className="book-top-how-to-buy__item-body">
+              <h3 className="book-top-how-to-buy__item-title">
+                STEP <span>1</span>
+              </h3>
+              <div className="book-top-how-to-buy__item-text">
+                <p>
+                  You need to add the Base Network to your wallet of
+                  choice.
+                </p>
+                <p>
+                  Check out the official @BuildOnBase docs on how here
+                </p>
+                <p>
+                  For a quicker way, use
+                  <a target="_blank" href="https://chainlist.org">https://chainlist.org</a>
+                  and add Base from there.
+                </p>
               </div>
             </div>
-          ))}
-        </div> */}
+            <div className="book-top-how-to-buy__item-label">Mochi</div>
+            <button type="button" className="book-top-how-to-buy__item-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M22.6667 14.6666V13.3333H21.3333V12H18.6667V9.33329H16V6.66663H13.3333V3.99996H10.6667V2.66663H8V6.66663H10.6667V9.33329H13.3333V12H16V14.6666H18.6667V17.3333H16V20H13.3333V22.6666H10.6667V25.3333H8V29.3333H10.6667V28H13.3333V25.3333H16V24V22.6666H18.6667V21.3333V20H21.3333V18.6666H22.6667V17.3333H24V16V14.6666H22.6667Z" fill="black" />
+              </svg>
+            </button>
+          </div>
+          <div className="book-top-how-to-buy__item book-top-how-to-buy__item--back">
+            <div className="book-top-how-to-buy__item-body">
+              <h3 className="book-top-how-to-buy__item-title">
+                STEP <span>2</span>
+              </h3>
+              <div className="book-top-how-to-buy__item-text">
+                <p>
+                  You need to add the Base Network to your wallet of
+                  choice.
+                </p>
+                <p>
+                  Check out the official @BuildOnBase docs on how here
+                </p>
+                <p>
+                  For a quicker way, use
+                  <a target="_blank" href="https://chainlist.org">https://chainlist.org</a>
+                  and add Base from there.
+                </p>
+              </div>
+            </div>
+            <div className="book-top-how-to-buy__item-label">Mochi</div>
+            <button type="button" className="book-top-how-to-buy__item-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M22.6667 14.6666V13.3333H21.3333V12H18.6667V9.33329H16V6.66663H13.3333V3.99996H10.6667V2.66663H8V6.66663H10.6667V9.33329H13.3333V12H16V14.6666H18.6667V17.3333H16V20H13.3333V22.6666H10.6667V25.3333H8V29.3333H10.6667V28H13.3333V25.3333H16V24V22.6666H18.6667V21.3333V20H21.3333V18.6666H22.6667V17.3333H24V16V14.6666H22.6667Z" fill="black" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div className="book-top-how-to-buy__item-wrapper">
+          <div className="book-top-how-to-buy__item book-top-how-to-buy__item--front">
+            <div className="book-top-how-to-buy__item-body">
+              <h3 className="book-top-how-to-buy__item-title">
+                STEP <span>3</span>
+              </h3>
+              <div className="book-top-how-to-buy__item-text">
+                <p>
+                  You need to add the Base Network to your wallet of
+                  choice.
+                </p>
+                <p>
+                  Check out the official @BuildOnBase docs on how here
+                </p>
+                <p>
+                  For a quicker way, use
+                  <a target="_blank" href="https://chainlist.org">https://chainlist.org</a>
+                  and add Base from there.
+                </p>
+              </div>
+            </div>
+            <div className="book-top-how-to-buy__item-label">Mochi</div>
+            <button type="button" className="book-top-how-to-buy__item-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M22.6667 14.6666V13.3333H21.3333V12H18.6667V9.33329H16V6.66663H13.3333V3.99996H10.6667V2.66663H8V6.66663H10.6667V9.33329H13.3333V12H16V14.6666H18.6667V17.3333H16V20H13.3333V22.6666H10.6667V25.3333H8V29.3333H10.6667V28H13.3333V25.3333H16V24V22.6666H18.6667V21.3333V20H21.3333V18.6666H22.6667V17.3333H24V16V14.6666H22.6667Z" fill="black" />
+              </svg>
+            </button>
+          </div>
+          <div className="book-top-how-to-buy__item book-top-how-to-buy__item--back">
+            <div className="book-top-how-to-buy__item-body">
+              <h3 className="book-top-how-to-buy__item-title">
+                STEP <span>4</span>
+              </h3>
+              <div className="book-top-how-to-buy__item-text">
+                <p>
+                  You need to add the Base Network to your wallet of
+                  choice.
+                </p>
+                <p>
+                  Check out the official @BuildOnBase docs on how here
+                </p>
+                <p>
+                  For a quicker way, use
+                  <a target="_blank" href="https://chainlist.org">https://chainlist.org</a>
+                  and add Base from there.
+                </p>
+              </div>
+            </div>
+            <div className="book-top-how-to-buy__item-label">Mochi</div>
+            <button type="button" className="book-top-how-to-buy__item-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M22.6667 14.6666V13.3333H21.3333V12H18.6667V9.33329H16V6.66663H13.3333V3.99996H10.6667V2.66663H8V6.66663H10.6667V9.33329H13.3333V12H16V14.6666H18.6667V17.3333H16V20H13.3333V22.6666H10.6667V25.3333H8V29.3333H10.6667V28H13.3333V25.3333H16V24V22.6666H18.6667V21.3333V20H21.3333V18.6666H22.6667V17.3333H24V16V14.6666H22.6667Z" fill="black" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div className="book-top-how-to-buy__item-last-page">
+          <div className="book-top-how-to-buy__item-label">Mochi</div>
+        </div>
       </div>
-      <p className="text-center text-purple-800 text-[48px]">Various Character</p>
-      <MarqueeAnimation>
-        <div className="marquee">{logoItems} </div>
-        <div className="marquee">{logoItems} </div>
-        <div className="marquee">{logoItems} </div>
-      </MarqueeAnimation>
-    </Wrapper>
+    </div>
+    <div style={{display: "none"}} className="top-how-to-buy__book book-top-how-to-buy">
+      <div className="book-top-how-to-buy__box">
+        <div data-watch-threshold="0.5" data-watch-once data-watch className="book-top-how-to-buy__item-first-page">
+          <div className="book-top-how-to-buy__item-first-page-lables">
+            <div className="book-top-how-to-buy__item-first-page-lable">
+              <img src="img/how-to-buy/label-box.svg" alt="Icon" />
+              <img src="img/how-to-buy/desktop.svg" alt="Icon" />
+            </div>
+            <div className="book-top-how-to-buy__item-first-page-lable">
+              <img src="img/how-to-buy/label-box.svg" alt="Icon" />
+              <img src="img/how-to-buy/mobile.svg" alt="Icon" />
+            </div>
+            <div className="book-top-how-to-buy__item-first-page-lable">
+              <img src="img/how-to-buy/label-box-active.svg" alt="Icon" />
+              <img src="img/how-to-buy/wallet.svg" alt="Icon" />
+            </div>
+          </div>
+          <div className="book-top-how-to-buy__item-first-page-body">
+            <h2 className="book-top-how-to-buy__item-first-page-title">
+              <span>H</span><span>o</span><span>w</span> <span>i</span><span>t</span><span>o</span> <span>i</span><span>B</span><span>u</span><span>y</span> <br />
+              <span className="orange">$</span><span className="orange">M</span><span className="orange">O</span><span className="orange">C</span><span className="orange">H</span><span className="orange">I</span>
+            </h2>
+            <p>ON CB WALLET</p>
+          </div>
+          <div className="book-top-how-to-buy__item-label">Mochi</div>
+        </div>
+        <div className="book-top-how-to-buy__item-wrapper">
+          <div className="book-top-how-to-buy__item book-top-how-to-buy__item--front">
+            <div className="book-top-how-to-buy__item-body">
+              <h3 className="book-top-how-to-buy__item-title">
+                STEP <span>1</span>
+              </h3>
+              <div className="book-top-how-to-buy__item-text">
+                <p>
+                  You need to add the Base Network to your wallet of
+                  choice.
+                </p>
+                <p>
+                  Check out the official @BuildOnBase docs on how here
+                </p>
+                <p>
+                  For a quicker way, use
+                  <a target="_blank" href="https://chainlist.org">https://chainlist.org</a>
+                  and add Base from there.
+                </p>
+              </div>
+            </div>
+            <div className="book-top-how-to-buy__item-label">Mochi</div>
+            <button type="button" className="book-top-how-to-buy__item-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M22.6667 14.6666V13.3333H21.3333V12H18.6667V9.33329H16V6.66663H13.3333V3.99996H10.6667V2.66663H8V6.66663H10.6667V9.33329H13.3333V12H16V14.6666H18.6667V17.3333H16V20H13.3333V22.6666H10.6667V25.3333H8V29.3333H10.6667V28H13.3333V25.3333H16V24V22.6666H18.6667V21.3333V20H21.3333V18.6666H22.6667V17.3333H24V16V14.6666H22.6667Z" fill="black" />
+              </svg>
+            </button>
+          </div>
+          <div className="book-top-how-to-buy__item book-top-how-to-buy__item--back">
+            <div className="book-top-how-to-buy__item-body">
+              <h3 className="book-top-how-to-buy__item-title">
+                STEP <span>2</span>
+              </h3>
+              <div className="book-top-how-to-buy__item-text">
+                <p>
+                  You need to add the Base Network to your wallet of
+                  choice.
+                </p>
+                <p>
+                  Check out the official @BuildOnBase docs on how here
+                </p>
+                <p>
+                  For a quicker way, use
+                  <a target="_blank" href="https://chainlist.org">https://chainlist.org</a>
+                  and add Base from there.
+                </p>
+              </div>
+            </div>
+            <div className="book-top-how-to-buy__item-label">Mochi</div>
+            <button type="button" className="book-top-how-to-buy__item-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M22.6667 14.6666V13.3333H21.3333V12H18.6667V9.33329H16V6.66663H13.3333V3.99996H10.6667V2.66663H8V6.66663H10.6667V9.33329H13.3333V12H16V14.6666H18.6667V17.3333H16V20H13.3333V22.6666H10.6667V25.3333H8V29.3333H10.6667V28H13.3333V25.3333H16V24V22.6666H18.6667V21.3333V20H21.3333V18.6666H22.6667V17.3333H24V16V14.6666H22.6667Z" fill="black" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div className="book-top-how-to-buy__item-wrapper">
+          <div className="book-top-how-to-buy__item book-top-how-to-buy__item--front">
+            <div className="book-top-how-to-buy__item-body">
+              <h3 className="book-top-how-to-buy__item-title">
+                STEP <span>3</span>
+              </h3>
+              <div className="book-top-how-to-buy__item-text">
+                <p>
+                  You need to add the Base Network to your wallet of
+                  choice.
+                </p>
+                <p>
+                  Check out the official @BuildOnBase docs on how here
+                </p>
+                <p>
+                  For a quicker way, use
+                  <a target="_blank" href="https://chainlist.org">https://chainlist.org</a>
+                  and add Base from there.
+                </p>
+              </div>
+            </div>
+            <div className="book-top-how-to-buy__item-label">Mochi</div>
+            <button type="button" className="book-top-how-to-buy__item-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M22.6667 14.6666V13.3333H21.3333V12H18.6667V9.33329H16V6.66663H13.3333V3.99996H10.6667V2.66663H8V6.66663H10.6667V9.33329H13.3333V12H16V14.6666H18.6667V17.3333H16V20H13.3333V22.6666H10.6667V25.3333H8V29.3333H10.6667V28H13.3333V25.3333H16V24V22.6666H18.6667V21.3333V20H21.3333V18.6666H22.6667V17.3333H24V16V14.6666H22.6667Z" fill="black" />
+              </svg>
+            </button>
+          </div>
+          <div className="book-top-how-to-buy__item book-top-how-to-buy__item--back">
+            <div className="book-top-how-to-buy__item-body">
+              <h3 className="book-top-how-to-buy__item-title">
+                STEP <span>4</span>
+              </h3>
+              <div className="book-top-how-to-buy__item-text">
+                <p>
+                  You need to add the Base Network to your wallet of
+                  choice.
+                </p>
+                <p>
+                  Check out the official @BuildOnBase docs on how here
+                </p>
+                <p>
+                  For a quicker way, use
+                  <a target="_blank" href="https://chainlist.org">https://chainlist.org</a>
+                  and add Base from there.
+                </p>
+              </div>
+            </div>
+            <div className="book-top-how-to-buy__item-label">Mochi</div>
+            <button type="button" className="book-top-how-to-buy__item-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M22.6667 14.6666V13.3333H21.3333V12H18.6667V9.33329H16V6.66663H13.3333V3.99996H10.6667V2.66663H8V6.66663H10.6667V9.33329H13.3333V12H16V14.6666H18.6667V17.3333H16V20H13.3333V22.6666H10.6667V25.3333H8V29.3333H10.6667V28H13.3333V25.3333H16V24V22.6666H18.6667V21.3333V20H21.3333V18.6666H22.6667V17.3333H24V16V14.6666H22.6667Z" fill="black" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div className="book-top-how-to-buy__item-last-page">
+          <div className="book-top-how-to-buy__item-label">Mochi</div>
+        </div>
+      </div>
+    </div>
+    <script src="app.min.js"></script>
+
+  </div>
   );
 };
 

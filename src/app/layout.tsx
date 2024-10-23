@@ -43,7 +43,6 @@ import { AntdRegistry } from "@ant-design/nextjs-registry";
 //     images: ["https://grabway.site/images/banner.png"],
 //   },
 // };
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -51,6 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      
       <body>
         <StyledJsxRegistry>
           <GlobalStyles />
@@ -61,6 +61,7 @@ export default function RootLayout({
           </>
         </StyledJsxRegistry>
       </body>
+      
     </html>
   );
 }

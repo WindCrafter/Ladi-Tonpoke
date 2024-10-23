@@ -93,10 +93,10 @@ const WhatTonpokePage = () => {
   const downX = useSpring(downScrollY, { stiffness: 50, damping: 20 });
 
   return (
-    <Wrapper ref={container} id="about">
+    <Wrapper ref={container} id="about" className=" mt-[48px] lg:mt-[200px]">
       <div className="flex items-center flex-col px-[5vw] relative">
         <img src="/images/TonPoke.png" className="w-[10vw] h-auto absolute z-10 min-w-[48px] min-h-[48px] right-[10vw] -top-24"></img>
-        <h1 className="text-purple-800 text-[48px] z-20">What is Tonpoke?</h1>
+        <h1 className="text-purple-800 text-[48px] z-20 text-center">What is Tonpoke?</h1>
         <img src="/images/RareBox.png" className="w-[120px] h-auto absolute z-10 left-[10vw] -top-24"></img>
 
         {/* <img src="/images/what-tonpoke/title-bg.png" alt="" className="-mt-[20px] " /> */}
@@ -112,20 +112,20 @@ const WhatTonpokePage = () => {
 
 
 
-      <div className="list-item-box">
+      <div className="flex md:flex-row flex-col items-center justify-center overflow-hidden mt-2">
         <motion.div style={{ x: outImageLeftX }} className="item-box">
           <img width={300} src="/images/game-screen.png" alt="" />
-          <p className="text-purple-800 text-[48px]">Content 1</p>
+          <p className="text-purple-800 text-[24px] md:text-[48px]">Content 1</p>
         </motion.div>
 
         <motion.div style={{ y: midImageY }} className="item-box">
           <img width={300} src="/images/game-screen.png" alt="" />
-          <p className="text-purple-800 text-[48px]">Content 2</p>
+          <p className="text-purple-800 text-[24px] md:text-[48px]">Content 2</p>
         </motion.div>
 
         <motion.div style={{ x: outImageRightX }} className="item-box">
           <img width={300} src="/images/game-screen.png" alt="" />
-          <p className="text-purple-800 text-[48px]">Content 3</p>
+          <p className="text-purple-800 text-[24px] md:text-[48px]">Content 3</p>
         </motion.div>
       </div>
     </Wrapper>

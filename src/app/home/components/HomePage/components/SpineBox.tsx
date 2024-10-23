@@ -57,7 +57,7 @@ const SpineBox: React.FC<SpineBoxProps> = ({
     };
   }, [spineDataUrl]);
 
-  return <div ref={canvasRef} />;
+  return <div className="absolute" ref={canvasRef} />;
 };
 
 export default SpineBox;

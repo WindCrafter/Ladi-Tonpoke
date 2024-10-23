@@ -25,7 +25,6 @@ const LogoBox = styled(motion.div)`
 
   .logo {
     filter: drop-shadow(0px 30px 30px rgba(0, 0, 0, 1));
-    width: 25rem;
   }
 
   .socials {
@@ -105,22 +104,27 @@ const HomePage = () => {
         backgroundColor={0x1099bb}
       />
 
-      <LogoBox style={{ y: logoY, x: "-50%" }}>
-        <img className="logo" src="/images/logo.png" alt="logo" />
-        <div className="socials">
+      {/* <LogoBox style={{ y: logoY, x: "-50%" }}> */}
+      <div className="w-screen h-screen flex items-center justify-center flex-col z-20 relative">
+        <img className="logo w-[80vw] lg:w-[40vw] h-auto" src="/images/logo.png" alt="logo" />
+        <div className="flex flex-row items-center gap-[16px]">
           {socialLinks.map((item) => (
             <a
               href={item.link}
               key={item.name}
               target="_blank"
               rel="noreferrer"
-              className="hover"
+              className="hover:opacity-80 opacity-100  hover:translate-y-2"
             >
               <img width={50} src={item.icon} alt={item.name} />
             </a>
           ))}
         </div>
-      </LogoBox>
+        <div className="w-full absolute ">
+
+
+        </div>
+      </div>
 
       {/* <MountainBox style={{ y: mountainY }}>
         <img src="/images/home/mountain.webp" alt="mountain" />
